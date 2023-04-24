@@ -87,13 +87,6 @@ export const Taskbar = ({ onClick = () => {} }) => {
                     <BiChevronLeft />
                 </span>
                 <div className="bg-blue-400 h-full flex items-center px-5 text-white text-sm shadow-l transition-all gap-2">
-                    {toggleText ? (
-                        <p className="text-xs font-medium flex gap-2 justify-center">
-                            Mi Hora
-                        </p>
-                    ) : (
-                        ""
-                    )}
                     <span className="flex items-center justify-center gap-2">
                         <a
                             href="https://github.com/CamiloIzquierdo"
