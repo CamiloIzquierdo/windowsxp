@@ -97,7 +97,7 @@ export const InternetExplorer = ({
                             alt=""
                             width={isSmallScreen ? 15 : 35}
                         />
-                        <p>Search</p>
+                        <p>{isSmallScreen ? "" : "Search"}</p>
                     </div>
                     <div
                         className={`${imgHover} flex gap-1 items-center cursor-default px-1`}
@@ -107,7 +107,7 @@ export const InternetExplorer = ({
                             alt=""
                             width={isSmallScreen ? 15 : 35}
                         />
-                        <p>Favorites</p>
+                        <p>{isSmallScreen ? "" : "Favorites"}</p>
                     </div>
                 </div>
                 <img
