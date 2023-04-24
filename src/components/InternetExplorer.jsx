@@ -9,6 +9,7 @@ import * as Images from "../../public/img/Index";
 import windowsIcon from "../../public/img/start-icon.png";
 import { GlobalContext } from "../context/GlobalContext";
 import { ButtonFolder } from "./ButtonFolder";
+import { useMediaQuery } from "@mui/material";
 
 export const InternetExplorer = ({
     checkSelectedFolder,
@@ -25,6 +26,8 @@ export const InternetExplorer = ({
         "hover:bg-blue-400 cursor-default px-2 h-full flex items-center";
     const imgHover =
         "border-transparent border hover:border-gray-400 rounded-sm";
+
+    const isSmallScreen = useMediaQuery("(max-width:800px)");
 
     return (
         <div className="w-full h-full flex flex-col">
@@ -51,7 +54,11 @@ export const InternetExplorer = ({
                     <li className={liStyle}>Help</li>
                 </ul>
                 <div className="bg-white px-3 py-2">
-                    <img src={windowsIcon} alt="" width={15} />
+                    <img
+                        src={windowsIcon}
+                        alt=""
+                        width={isSmallScreen ? 5 : 15}
+                    />
                 </div>
             </div>
             <div className="bg-gray-100 h-12 flex items-center gap-2 px-1 border">
@@ -62,31 +69,69 @@ export const InternetExplorer = ({
                 </div>
                 <BsFillArrowRightCircleFill className="text-3xl text-gray-300" />
                 <div className="border-r flex pr-1">
-                    <img src={Images.Stop} alt="" className={imgHover} />
-                    <img src={Images.Refresh} alt="" className={imgHover} />
-                    <img src={Images.Home} alt="" className={imgHover} />
+                    <img
+                        src={Images.Stop}
+                        alt=""
+                        className={imgHover}
+                        width={isSmallScreen ? 25 : 35}
+                    />
+                    <img
+                        src={Images.Refresh}
+                        alt=""
+                        className={imgHover}
+                        width={isSmallScreen ? 25 : 35}
+                    />
+                    <img
+                        src={Images.Home}
+                        alt=""
+                        className={imgHover}
+                        width={isSmallScreen ? 25 : 35}
+                    />
                 </div>
                 <div className="border-r flex gap-1 items-center pr-2">
                     <div
                         className={`${imgHover} flex gap-1 items-center cursor-default px-1`}
                     >
-                        <img src={Images.Search} alt="" />
+                        <img
+                            src={Images.Search}
+                            alt=""
+                            width={isSmallScreen ? 15 : 35}
+                        />
                         <p>Search</p>
                     </div>
                     <div
                         className={`${imgHover} flex gap-1 items-center cursor-default px-1`}
                     >
-                        <img src={Images.Favorite} alt="" />
+                        <img
+                            src={Images.Favorite}
+                            alt=""
+                            width={isSmallScreen ? 15 : 35}
+                        />
                         <p>Favorites</p>
                     </div>
                 </div>
-                <img src={Images.History} alt="" className={imgHover} />
-                <img src={Images.Mail} alt="" className={imgHover} />
-                <img src={Images.Messenger} alt="" className={imgHover} />
+                <img
+                    src={Images.History}
+                    alt=""
+                    className={imgHover}
+                    width={isSmallScreen ? 25 : 35}
+                />
+                <img
+                    src={Images.Mail}
+                    alt=""
+                    className={imgHover}
+                    width={isSmallScreen ? 25 : 35}
+                />
+                <img
+                    src={Images.Messenger}
+                    alt=""
+                    className={imgHover}
+                    width={isSmallScreen ? 25 : 35}
+                />
             </div>
             <div className="bg-gray-100 h-8 items-center flex gap-3 cursor-default px-2 border border-gray-200">
                 <p className="">Address</p>
-                <p className="bg-white w-[85%] flex gap-2 items-center px-2">
+                <p className="bg-white w-[85%] flex gap-2 items-center px-2 md:text-base text-xs">
                     {url}
                 </p>
                 <AiOutlineArrowRight className="bg-green-600 text-white text-xl" />
