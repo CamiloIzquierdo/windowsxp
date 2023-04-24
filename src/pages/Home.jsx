@@ -11,7 +11,7 @@ import { Bloc } from "../components/Bloc";
 
 export const Home = () => {
     /* const [showModal, setShowModal] = useState(false); */
-    const [isMinimized, setIsMinimized] = useState(false);
+    const [isMinimized, setIsMinimized] = useState(true);
     const { folders, setFolders, modal, setModal, toggleError } =
         useContext(GlobalContext);
 
