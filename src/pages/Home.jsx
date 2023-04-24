@@ -43,65 +43,69 @@ export const Home = () => {
 
     return (
         <div className="flex h-screen w-screen flex-col justify-between items-start relative">
-            <div className="flex">
-                <div>
-                    {Data.map(
-                        (folderData) =>
-                            folderData.category === "folder" && (
-                                <div
-                                    key={folderData.id}
-                                    className="flex flex-col items-start px-5 "
-                                >
-                                    <File
-                                        onDoubleClick={() =>
-                                            handleDoubleClick(folderData)
-                                        }
+            <div className="h-fit">
+                <div className="flex">
+                    <div>
+                        {Data.map(
+                            (folderData) =>
+                                folderData.category === "folder" && (
+                                    <div
+                                        key={folderData.id}
+                                        className="flex flex-col items-start px-5 "
                                     >
-                                        {folderData.names}
-                                    </File>
-                                </div>
-                            )
-                    )}
-                </div>
-            </div>
-            <div
-                className={`${
-                    modal ? "block" : "hidden"
-                } fixed z-10 inset-0 overflow-y-auto`}
-            >
-                <div className="flex items-center justify-center min-h-full">
-                    <div
-                        className="fixed inset-0 bg-opacity-75 transition-opacity"
-                        aria-hidden="true"
-                        onClick={toggleModal}
-                    ></div>
-                    <div
-                        className={`bg-white rounded-lg z-10 ${
-                            !isMinimized
-                                ? "w-[1000px] h-[600px]"
-                                : "w-screen h-screen"
-                        }`}
-                    >
-                        {folders?.map((item) =>
-                            item.selected && item.typeFolder === "explorer" ? (
-                                <InternetExplorer
-                                    isMinimized={isMinimized}
-                                    setIsMinimized={setIsMinimized}
-                                    url={item.url}
-                                />
-                            ) : item.selected &&
-                              item.typeFolder === "folderDesktop" ? (
-                                <FolderOpen
-                                    isMinimized={isMinimized}
-                                    setIsMinimized={setIsMinimized}
-                                />
-                            ) : item.selected && item.typeFolder === "cv" ? (
-                                <Bloc
-                                    isMinimized={isMinimized}
-                                    setIsMinimized={setIsMinimized}
-                                />
-                            ) : null
+                                        <File
+                                            onDoubleClick={() =>
+                                                handleDoubleClick(folderData)
+                                            }
+                                        >
+                                            {folderData.names}
+                                        </File>
+                                    </div>
+                                )
                         )}
+                    </div>
+                </div>
+                <div
+                    className={`${
+                        modal ? "block" : "hidden"
+                    } fixed z-10 inset-0 overflow-y-auto`}
+                >
+                    <div className="flex items-center justify-center min-h-full">
+                        <div
+                            className="fixed inset-0 bg-opacity-75 transition-opacity"
+                            aria-hidden="true"
+                            onClick={toggleModal}
+                        ></div>
+                        <div
+                            className={`bg-white rounded-lg z-10 ${
+                                !isMinimized
+                                    ? "w-[1000px] h-[600px]"
+                                    : "w-screen h-screen"
+                            }`}
+                        >
+                            {folders?.map((item) =>
+                                item.selected &&
+                                item.typeFolder === "explorer" ? (
+                                    <InternetExplorer
+                                        isMinimized={isMinimized}
+                                        setIsMinimized={setIsMinimized}
+                                        url={item.url}
+                                    />
+                                ) : item.selected &&
+                                  item.typeFolder === "folderDesktop" ? (
+                                    <FolderOpen
+                                        isMinimized={isMinimized}
+                                        setIsMinimized={setIsMinimized}
+                                    />
+                                ) : item.selected &&
+                                  item.typeFolder === "cv" ? (
+                                    <Bloc
+                                        isMinimized={isMinimized}
+                                        setIsMinimized={setIsMinimized}
+                                    />
+                                ) : null
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
