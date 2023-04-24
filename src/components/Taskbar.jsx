@@ -5,6 +5,7 @@ import { GrLinkedinOption } from "react-icons/gr";
 import { AiFillGithub } from "react-icons/ai";
 import { GlobalContext } from "../context/GlobalContext";
 import { StartOpen } from "./StartOpen";
+import { useMediaQuery } from "@mui/material";
 
 export const Taskbar = ({ onClick = () => {} }) => {
     const [toggleText, setToggleText] = useState(true);
@@ -45,6 +46,7 @@ export const Taskbar = ({ onClick = () => {} }) => {
         setFolders(updatedFolders);
         setModal(true);
     };
+    const isSmallScreen = useMediaQuery("(max-width:800px)");
 
     return (
         <div className="w-full bg-blue-600 h-9 flex justify-between items-center z-20 relative">
@@ -62,14 +64,14 @@ export const Taskbar = ({ onClick = () => {} }) => {
                 </Button>
                 <div className="p-1 flex gap-2">
                     {folders.map((folder) => (
-                        <div key={folder.id} className="w-36">
+                        <div key={folder.id} className="md:w-36 w-fit">
                             <Button
                                 color="secondary"
                                 onClick={() => handleClick(folder)}
                                 selected={folder.selected}
                             >
                                 <img src={folder.icon} alt="" width={15} />
-                                {folder.names}
+                                {isSmallScreen ? "" : folder.names}
                             </Button>
                         </div>
                     ))}
