@@ -66,7 +66,7 @@ export const Taskbar = ({ onClick = () => {} }) => {
                     {folders.map((folder) => (
                         <div key={folder.id} className="md:w-36 w-fit">
                             <Button
-                                color="secondary"
+                                color={isSmallScreen ? "tertiary" : "secondary"}
                                 onClick={() => handleClick(folder)}
                                 selected={folder.selected}
                             >
