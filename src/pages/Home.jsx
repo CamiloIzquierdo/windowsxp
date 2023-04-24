@@ -17,7 +17,6 @@ export const Home = () => {
 
     const handleDoubleClick = (folderData) => {
         const exists = folders.some((item) => item.id === folderData.id);
-
         if (!exists) {
             const updatedFolders = [
                 ...folders.map((item) => ({ ...item, selected: false })),

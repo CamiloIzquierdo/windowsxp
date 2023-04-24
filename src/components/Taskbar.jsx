@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Button } from "./Button";
 import { BiChevronLeft } from "react-icons/bi";
 import { GrLinkedinOption } from "react-icons/gr";
@@ -13,7 +13,6 @@ export const Taskbar = ({ onClick = () => {} }) => {
     const { folders, setFolders, setModal, modal } = useContext(GlobalContext);
 
     const [time, setTime] = useState(new Date());
-
     const [toggleStart, setToggleStart] = useState(false);
 
     useEffect(() => {
@@ -31,9 +30,22 @@ export const Taskbar = ({ onClick = () => {} }) => {
         minute: "numeric",
     };
 
-    const closeAndOpen = () => {
-        setModal(!modal);
-    };
+    const wrapperRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                wrapperRef.current &&
+                !wrapperRef.current.contains(event.target)
+            ) {
+                setToggleStart(false);
+            }
+        };
+        window.addEventListener("click", handleClickOutside);
+        return () => {
+            window.removeEventListener("click", handleClickOutside);
+        };
+    }, [wrapperRef]);
 
     const handleClick = (folderData) => {
         const updatedFolders = folders.map((folder) => {
@@ -49,7 +61,10 @@ export const Taskbar = ({ onClick = () => {} }) => {
     const isSmallScreen = useMediaQuery("(max-width:800px)");
 
     return (
-        <div className="w-full bg-blue-600 h-9 flex justify-between items-center z-20 relative">
+        <div
+            ref={wrapperRef}
+            className="w-full bg-blue-600 h-9 flex justify-between items-center z-20 relative"
+        >
             {toggleStart && (
                 <div className="h-full z-49 w-full absolute bottom-[536px]">
                     <StartOpen />
