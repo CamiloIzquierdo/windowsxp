@@ -1,0 +1,23 @@
+body {
+    background-image: url(../public/img/fondoo.jpg);
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.transition-opacity {
+    transition-property: opacity;
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in-out;
+}
+
+.fullscreen {
+    width: 100vw;
+    height: 100vh;
+}
