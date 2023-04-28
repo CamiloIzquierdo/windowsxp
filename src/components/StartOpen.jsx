@@ -112,7 +112,7 @@ export const StartOpen = () => {
                     />
                     <FilesStartModal
                         image={Carpetas.Computer}
-                        secondText="My Copmuter"
+                        secondText="My Computer"
                         imageSize="secondary"
                         onClick={() => setToggleError(true)}
                     />
