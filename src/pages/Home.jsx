@@ -41,7 +41,7 @@ export const Home = () => {
     };
 
     return (
-        <div className="flex h-screen w-screen flex-col justify-between items-start relative">
+        <div className="flex h-[100dvh] w-screen flex-col justify-between items-start relative">
             <div className="h-fit">
                 <div className="flex">
                     <div>
