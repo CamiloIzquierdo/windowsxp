@@ -12,3 +12,8 @@
     width: 100vw;
     height: 100vh;
 }
+
+@font-face {
+    font-family: "DigitalDismay";
+    src: url("../public/font/DigitalDismay.otf");
+}

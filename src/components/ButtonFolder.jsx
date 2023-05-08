@@ -1,8 +1,8 @@
-import { FaRegWindowRestore } from "react-icons/fa";
+import { useContext } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import { FaRegWindowRestore } from "react-icons/fa";
 import { MdMinimize } from "react-icons/md";
 import { GlobalContext } from "../context/GlobalContext";
-import { useContext, useMemo, useState } from "react";
 
 export const ButtonFolder = ({ data, setIsMinimized, isMinimized }) => {
     const { modal, setModal, folders, setFolders, setExplore } =

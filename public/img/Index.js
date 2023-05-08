@@ -43,3 +43,4 @@ export { default as Css } from "../../public/img/css.svg";
 export { default as Directus } from "../../public/img/directus.svg";
 export { default as Firebase } from "../../public/img/firebase.svg";
 export { default as ErrorMp3 } from "../../public/img/error.mp3";
+export { default as Smile } from "../../public/img/smile.png";
